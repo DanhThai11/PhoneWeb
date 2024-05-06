@@ -122,6 +122,68 @@ public class DAO {
 		
 		return null;
 }
-	
+	public List<Product> searchByName(String txtSearch){
+		List<Product> list = new ArrayList<>();
+		String query = "select * from product where title like ?";
+		try {
+			new DBConnect();
+			conn = DBConnect.getConn();
+			ps = conn.prepareStatement(query);
+			ps.setString(1,'%' + txtSearch + '%');
+			rs = ps.executeQuery();
+			while(rs.next()){
+			list.add(new Product(rs.getInt(1),
+					rs.getString(2),
+					rs.getString(3), 
+					rs.getDouble(4), 
+					rs.getString(5),
+					rs.getString(6)));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return list;
+}
+	public List<Product> getProductBySellID(String id){
+		List<Product> list = new ArrayList<>();
+		String query = "select * from product where sell_ID = ?";
+		try {
+			new DBConnect();
+			conn = DBConnect.getConn();
+			ps = conn.prepareStatement(query);
+			ps.setString(1,id);
+			rs = ps.executeQuery();
+			while(rs.next()){
+			list.add(new Product(rs.getInt(1),
+					rs.getString(2),
+					rs.getString(3), 
+					rs.getDouble(4), 
+					rs.getString(5),
+					rs.getString(6)));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return list;
+}
+	public boolean isAdmin(String user, String pass) {
+	    String query = "SELECT isAdmin FROM account WHERE user = ? AND pass = ?";
+	    try {
+	        new DBConnect();
+	        conn = DBConnect.getConn();
+	        ps = conn.prepareStatement(query);
+	        ps.setString(1, user);
+	        ps.setString(2, pass);
+	        rs = ps.executeQuery();
+	        if(rs.next()) {
+	            return rs.getInt(1) == 1;
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace(); // In lỗi để kiểm tra và xử lý sau
+	    } 
+	    return false;
+	}
 
 }

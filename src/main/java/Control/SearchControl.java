@@ -13,16 +13,16 @@ import DAO.DAO;
 import Entity.Product;
 
 /**
- * Servlet implementation class HomeControl
+ * Servlet implementation class SearchControl
  */
-@WebServlet("/home")
-public class HomeControl extends HttpServlet {
+@WebServlet("/search")
+public class SearchControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HomeControl() {
+    public SearchControl() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,12 +30,15 @@ public class HomeControl extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String txtSearch = request.getParameter("txt");
 		DAO dao = new DAO();
-		List<Product> list = dao.getAllProduct();
-		request.setAttribute("listP", list);
-		request.getRequestDispatcher("HomePage.jsp").forward(request, response);
+		List<Product> list = dao.searchByName(txtSearch);
+		request.setAttribute("listP1", list);
+		request.setAttribute("txtS", txtSearch);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
+
 }
-	

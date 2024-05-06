@@ -13,16 +13,16 @@ import DAO.DAO;
 import Entity.Product;
 
 /**
- * Servlet implementation class HomeControl
+ * Servlet implementation class ListControl
  */
-@WebServlet("/home")
-public class HomeControl extends HttpServlet {
+@WebServlet("/list")
+public class ListControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HomeControl() {
+    public ListControl() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,12 +30,13 @@ public class HomeControl extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		DAO dao = new DAO();
 		List<Product> list = dao.getAllProduct();
-		request.setAttribute("listP", list);
-		request.getRequestDispatcher("HomePage.jsp").forward(request, response);
+		request.setAttribute("listP1", list);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
-}
 	
+
+}

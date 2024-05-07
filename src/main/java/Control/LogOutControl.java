@@ -31,7 +31,7 @@ public class LogOutControl extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		HttpSession session = request.getSession();
 		session.removeAttribute("acc");
-		response.sendRedirect("HomePage.jsp");
+		response.sendRedirect("home");
 	}
 
 }

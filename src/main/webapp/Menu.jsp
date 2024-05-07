@@ -153,7 +153,7 @@
             <div class="offcanvas-body">
               <ul id="navbar" class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link me-4 active" href="#billboard">Home</a>
+                  <a class="nav-link me-4 active" href="home">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link me-4" href="#company-services">Services</a>
@@ -189,7 +189,7 @@
                       <a href="shop.html" class="dropdown-item">Shop</a>
                     </li>
                     <li>
-                      <a href="cart.html" class="dropdown-item">Cart</a>
+                      <a href="Cart.jsp" class="dropdown-item">Cart</a>
                     </li>
                     <li>
                       <a href="checkout.html" class="dropdown-item">Checkout</a>
@@ -238,7 +238,7 @@
                       </c:if>
                                      
                       <li>
-                        <a href="cart.html">
+                        <a href="Cart.jsp">
                           <svg class="cart">
                             <use xlink:href="#cart"></use>
                           </svg>

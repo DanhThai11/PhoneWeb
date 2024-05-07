@@ -34,9 +34,9 @@ public class LoginControl extends HttpServlet {
             session.setAttribute("isAdmin", isAdmin);
             // Redirect to different pages based on user role
             if (isAdmin) {
-                resp.sendRedirect("manager.jsp");
+                resp.sendRedirect("managerall.jsp");
             } else {
-                resp.sendRedirect("HomePage.jsp");
+                resp.sendRedirect("home");
             }
         }
     }

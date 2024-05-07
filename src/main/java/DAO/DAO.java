@@ -1,6 +1,7 @@
 package DAO;
 
 import Entity.Account;
+import Entity.Cart;
 import Entity.Product;
 import java.util.ArrayList;
 import java.util.List;
@@ -145,14 +146,14 @@ public class DAO {
 		
 		return list;
 }
-	public List<Product> getProductBySellID(String id){
+	public List<Product> getProductBySellID(int id){
 		List<Product> list = new ArrayList<>();
 		String query = "select * from product where sell_ID = ?";
 		try {
 			new DBConnect();
 			conn = DBConnect.getConn();
 			ps = conn.prepareStatement(query);
-			ps.setString(1,id);
+			ps.setInt(1,id);
 			rs = ps.executeQuery();
 			while(rs.next()){
 			list.add(new Product(rs.getInt(1),
@@ -184,6 +185,39 @@ public class DAO {
 	        e.printStackTrace(); // In lỗi để kiểm tra và xử lý sau
 	    } 
 	    return false;
+	}
+	public void addCart(Cart cart) {
+	    String query = "INSERT INTO Cart (accountID, productID, amount) VALUES (?, ?, ?)";
+	    try {
+	        new DBConnect();
+	        conn = DBConnect.getConn();
+	        ps = conn.prepareStatement(query);
+	        ps.setInt(1, cart.getaccountId());
+	        ps.setInt(2, cart.getProductId());
+	        ps.setInt(3, cart.getamount());
+	        ps.executeUpdate();
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    }
+	}
+	public List<Cart> getCartByAccountId(int accountId) {
+	    List<Cart> cart = new ArrayList<>();
+	    String query = "SELECT * FROM Cart WHERE accountId = ?";
+	    try {
+	        new DBConnect();
+	        conn = DBConnect.getConn();
+	        ps = conn.prepareStatement(query);
+	        ps.setInt(1, accountId);
+	        ResultSet rs = ps.executeQuery();
+	        while (rs.next()) {
+	            int productId = rs.getInt("productId");
+	            int amount = rs.getInt("amount");
+	            cart.add(new Cart(accountId, productId, amount));
+	        }
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    }
+	    return cart;
 	}
 
 }

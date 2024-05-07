@@ -24,7 +24,7 @@
 
     <div style='display: flex; justify-content: space-around; background-color: #f1f1f1; padding: 10px;'>
     	<a href='' style='text-decoration: none; color: #fff; background-color: #3498db; padding: 8px 16px; border-radius: 5px; text-align: center; display: inline-block; margin-right: 10px;'>Account</a>
-        <a href='ProductControl' style='text-decoration: none; color: #fff; background-color: #3498db; padding: 8px 16px; border-radius: 5px; text-align: center; display: inline-block; margin-right: 10px;'>Product</a>
+        <a href='manager' style='text-decoration: none; color: #fff; background-color: #3498db; padding: 8px 16px; border-radius: 5px; text-align: center; display: inline-block; margin-right: 10px;'>Product</a>
         <a href='' style='text-decoration: none; color: #fff; background-color: #3498db; padding: 8px 16px; border-radius: 5px; text-align: center; display: inline-block; margin-right: 10px;'>Category</a>
         <a href='' style='text-decoration: none; color: #fff; background-color: #3498db; padding: 8px 16px; border-radius: 5px; text-align: center; display: inline-block; margin-right: 10px;'>Cart</a>
     </div>

@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!doctype html>
 <html>
 <head>
@@ -215,60 +216,50 @@ a:hover {
 </style>
 </head>
 <body className='snippet-body'>
-    <div class="card">
-        <div class="row">
-            <div class="col-md-8 cart">
-                <div class="title">
-                    <div class="row">
-                        <div class="col">
-                            <h4>
-                                <b>Shopping Cart</b>
-                            </h4>
-                        </div>
-                        <div class="col align-self-center text-right text-muted">
-                            <c:out value="${fn:length(cart)}"/> items
-                        </div>
-                    </div>
-                </div>
-                <c:forEach var="item" items="${cart}">
-                    <div class="row border-top border-bottom">
-                        <div class="row main align-items-center">
-                            <div class="col-2">
-                                <img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg">
-                            </div>
-                            <div class="col">
-                                <div class="row text-muted">Product ID: <c:out value="${item.productId}"/></div>
-                                <div class="row">Amount: <c:out value="${item.amount}"/></div>
-                            </div>
-                            <div class="col">
-                                <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
-                            </div>
-                            <div class="col">
-                                &euro; 44.00 <span class="close">&#10005;</span>
-                            </div>
-                        </div>
-                    </div>
-                </c:forEach>
-				<div class="row border-top border-bottom">
-					<div class="row main align-items-center">
-						<div class="col-2">
-							<img class="img-fluid" src="https://i.imgur.com/pHQ3xT3.jpg">
-						</div>
+	<div class="card">
+		<div class="row">
+			<div class="col-md-8 cart">
+				<div class="title">
+					<div class="row">
 						<div class="col">
-							<div class="row text-muted">Shirt</div>
-							<div class="row">Cotton T-shirt</div>
+							<h4>
+								<b>Shopping Cart</b>
+							</h4>
 						</div>
-						<div class="col">
-							<a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
-						</div>
-						<div class="col">
-							&euro; 44.00 <span class="close">&#10005;</span>
+						<div class="col align-self-center text-right text-muted">
+							<c:out value="${fn:length(cart)}" />
+							items
 						</div>
 					</div>
 				</div>
+				<c:forEach var="entry" items="${cart}">
+					<div class="row border-top border-bottom">
+						<div class="row main align-items-center">
+							<div class="col-2">
+								<img class="img-fluid" src="${entry.key.image}">
+							</div>
+							<div class="col">
+								<div class="row text-muted">
+									<c:out value="${entry.key.title}" />
+								</div>
+								<div class="row">
+									Amount:
+									<c:out value="${entry.value}" />
+								</div>
+							</div>
+							<div class="col">
+								<a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+							</div>
+							<div class="col">${entry.key.formattedPrice}
+								<a href="remove?pid=${entry.key.id}" class="remove-item">&#10005;</a>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
+
 				<div class="back-to-shop">
-					<a href="home">&leftarrow;</a>
-					<span class="text-muted">Back to shop</span>
+					<a href="home">&leftarrow;</a> <span class="text-muted">Back
+						to shop</span>
 				</div>
 			</div>
 			<div class="col-md-4 summary">

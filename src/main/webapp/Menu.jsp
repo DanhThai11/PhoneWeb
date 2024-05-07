@@ -189,7 +189,7 @@
                       <a href="shop.html" class="dropdown-item">Shop</a>
                     </li>
                     <li>
-                      <a href="Cart.jsp" class="dropdown-item">Cart</a>
+                      <a href="cart" class="dropdown-item">Cart</a>
                     </li>
                     <li>
                       <a href="checkout.html" class="dropdown-item">Checkout</a>
@@ -238,9 +238,9 @@
                       </c:if>
                                      
                       <li>
-                        <a href="Cart.jsp">
+                        <a href="cart">
                           <svg class="cart">
-                            <use xlink:href="#cart"></use>
+                        <use xlink:href="#cart"></use>
                           </svg>
                         </a>
                       </li>

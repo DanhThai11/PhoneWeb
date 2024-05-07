@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import DAO.DAO;
 import Entity.Cart;
+import Entity.Product;
 
 /**
  * Servlet implementation class CartControl
@@ -29,20 +30,24 @@ public class CartControl extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	DAO dao = new DAO();
-    	HttpSession session = request.getSession();
-        int accountId = (int) session.getAttribute("accountId");
-        List<Cart> cart = dao.getCartByAccountId(accountId);
-        request.setAttribute("cart", cart);
-		request.getRequestDispatcher("Cart.jsp").forward(request, response);
-       
-    }
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+    	DAO dao = new DAO();
+		String id = request.getParameter("pid");
+		System.out.println("Send by cartcontrol : "+ id);
+		if (id == null) {
+			request.setAttribute("cart", DAO.productAndAmount);
+	    	request.getRequestDispatcher("Cart.jsp").forward(request, response);
+	    	return;
+		} else {
+			Product sellectProduct = dao.getProductByID(id);
+//	    	HttpSession session = request.getSession();
+//	        int accountId = (int) session.getAttribute("accountId");
 
+	    	DAO.addCart(sellectProduct);
+	        request.setAttribute("cart", DAO.productAndAmount);
+	    	request.getRequestDispatcher("Cart.jsp").forward(request, response);
+		}
+    	
+
+    }
 }

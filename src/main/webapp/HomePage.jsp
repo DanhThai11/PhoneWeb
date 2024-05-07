@@ -247,7 +247,7 @@
           <div class="display-header d-flex justify-content-between pb-3">
             <h2 class="display-7 text-dark text-uppercase">Mobile Products</h2>
             <div class="btn-right">
-              <a href="index.jsp" class="btn btn-medium btn-normal text-uppercase">Go to Shop</a>
+              <a href="list" class="btn btn-medium btn-normal text-uppercase">Go to Shop</a>
             </div>
           </div>
         <!--   <div class="swiper product-swiper">
@@ -357,7 +357,7 @@
                         </div>
                         <div class="cart-concern position-absolute">
                             <div class="cart-button d-flex">
-                                <a href="#" class="btn btn-medium btn-black">Add to Cart</a>
+                                <a href="cart?pid=${o.id}" class="btn btn-medium btn-black">Add to Cart</a>
                             </div>
                         </div>
                         <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
@@ -383,7 +383,7 @@
           <div class="display-header d-flex justify-content-between pb-3">
             <h2 class="display-7 text-dark text-uppercase">Ipad Products</h2>
             <div class="btn-right">
-              <a href="index.jsp" class="btn btn-medium btn-normal text-uppercase">Go to Shop</a>
+              <a href="list" class="btn btn-medium btn-normal text-uppercase">Go to Shop</a>
             </div>
           </div>
       </div>
@@ -398,7 +398,7 @@
                         </div>
                         <div class="cart-concern position-absolute">
                             <div class="cart-button d-flex">
-                                <a href="#" class="btn btn-medium btn-black">Add to Cart</a>
+                                <a href="cart?pid=${o.id}" class="btn btn-medium btn-black">Add to Cart</a>
                             </div>
                         </div>
                         <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
@@ -424,7 +424,7 @@
           <div class="display-header d-flex justify-content-between pb-3">
             <h2 class="display-7 text-dark text-uppercase">Macbook Products</h2>
             <div class="btn-right">
-              <a href="index.jsp" class="btn btn-medium btn-normal text-uppercase">Go to Shop</a>
+              <a href="list" class="btn btn-medium btn-normal text-uppercase">Go to Shop</a>
             </div>
           </div>
       </div>
@@ -440,7 +440,7 @@
                         </div>
                         <div class="cart-concern position-absolute">
                             <div class="cart-button d-flex">
-                                <a href="#" class="btn btn-medium btn-black">Add to Cart</a>
+                                <a href="cart?pid=${o.id}" class="btn btn-medium btn-black">Add to Cart</a>
                             </div>
                         </div>
                         <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
